@@ -1,0 +1,28 @@
+<h1>Listing Portfolios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for portfolios <- @portfolios do %>
+    <tr>
+      <td><%= portfolios.name %></td>
+      <td><%= portfolios.description %></td>
+
+      <td>
+        <%= link "Show", to: Routes.portfolios_path(@conn, :show, portfolios) %>
+        <%= link "Edit", to: Routes.portfolios_path(@conn, :edit, portfolios) %>
+        <%= link "Delete", to: Routes.portfolios_path(@conn, :delete, portfolios), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Portfolios", to: Routes.portfolios_path(@conn, :new) %></span>

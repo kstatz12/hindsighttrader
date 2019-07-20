@@ -1,0 +1,28 @@
+<h1>Listing Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for profiles <- @profiles do %>
+    <tr>
+      <td><%= profiles.name %></td>
+      <td><%= profiles.description %></td>
+
+      <td>
+        <%= link "Show", to: Routes.profiles_path(@conn, :show, profiles) %>
+        <%= link "Edit", to: Routes.profiles_path(@conn, :edit, profiles) %>
+        <%= link "Delete", to: Routes.profiles_path(@conn, :delete, profiles), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Profiles", to: Routes.profiles_path(@conn, :new) %></span>

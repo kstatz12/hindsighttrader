@@ -1,0 +1,18 @@
+<h1>Show Portfolios</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @portfolios.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @portfolios.description %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.portfolios_path(@conn, :edit, @portfolios) %></span>
+<span><%= link "Back", to: Routes.portfolios_path(@conn, :index) %></span>
